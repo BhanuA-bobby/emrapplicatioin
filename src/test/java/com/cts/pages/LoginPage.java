@@ -6,12 +6,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
+	private static By usernameloc1 = By.id("authUser");
+	private static By passwordloc1 = By.id("clearPass");
+	
 
 	private static By usernameloc = By.id("authUser");
 	private static By passwordloc = By.id("clearPass");
 	private static By languageloc = By.xpath("//select[@name='languageChoice']");
 	private static By loginloc = By.xpath("//button[@class='btn btn-default btn-lg']");
 	private static By invalidloc=By.xpath("//div[@class='alert alert-danger login-failure m-1']");
+	public static void login(WebDriver driver, String username,String password)
+	{
+		driver.findElement(usernameloc1).sendKeys(username);
+		driver.findElement(passwordloc1).sendKeys(password);
+		
+		
+	}
 
 	public static void enterUserName(WebDriver driver, String username) {
 		driver.findElement(usernameloc).sendKeys(username);
